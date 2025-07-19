@@ -58,5 +58,84 @@ Designed for:
 
 ---
 
-## 📁 Repository Structure
+📂 gui/
+
+└── medical_text_ontology_analyzer.py    # GUI-based clinical NLP tool
+
+📂 chaining/
+
+└── lexical_chains_spacy.py              # Sentence similarity using SpaCy vectors
+
+📂 evaluation/
+
+└── summarization_evaluation.py          # CLI tool for summarization metrics & visualization
+
+📂 config/
+
+└── config.yaml                          # Configuration file for external tools 
+
+
+
+---
+
+## ⚙️ Installation
+
+### 🔹 Dependencies
+
+```bash
+pip install pandas spacy nltk stanza spacy-stanza xmltodict \
+  beautifulsoup4 requests matplotlib tqdm scikit-learn \
+  sentence-transformers bert-score rouge-score sumy negspacy pyyaml
+
+python -m nltk.downloader punkt
+python -m spacy download en_core_web_sm
+python -m spacy download en_core_web_lg
+python -m stanza download en --package=mimic --processors={'ner': 'i2b2'} 
+```
+
+---
+## 🛠️ External Setup
+
+### 🔸 Stanford Parser
+
+**Download from:**  
+[https://stanfordnlp.github.io/CoreNLP/download.html](https://stanfordnlp.github.io/CoreNLP/download.html)
+
+**Update `config.yaml`:**
+
+```yaml
+stanford_parser:
+  path_to_jar: "/path/to/stanford-parser.jar"
+  path_to_models_jar: "/path/to/stanford-parser-4.x.x-models.jar"
+```
+
+### 🔸 Apache cTAKES
+
+Download from:  
+https://ctakes.apache.org/downloads.html
+**Update `config.yaml`:**
+
+```yaml
+ctakes:
+  installation_dir: "/path/to/ctakes"
+  input_dir: "/path/to/ctakes/input"
+  output_dir: "/path/to/ctakes/output"
+  pipeline_key: "your_UMLS_API_key"
+```
+
+
+## 🖥️ How to Use
+
+### ✅ GUI (Recommended)
+
+```bash
+# Run GUI application
+python gui/medical_text_ontology_analyzer.py
+
+# Steps:
+# - Load PubMed text or Case Study document
+# - Run entity extraction via cTAKES
+# - Visualize linguistic parses (chunking, dependency, SRL)
+# - Click "Summarize" to generate extractive summaries
+```
 
