@@ -1,0 +1,8 @@
+ctakes:
+  installation_dir: D:\ctakes\
+  input_dir: D:\ctakes\testdata\
+  output_dir: D:\ctakes\output\
+  pipeline_key: 407176ab-8877-40e6-a202-09abfdc0c709
+stanford_parser:
+  path_to_jar: D:\Medical_text_analyzer\Stanford Parser\stanford-parser-full-2020-11-17\stanford-parser.jar
+  path_to_models_jar: D:\Medical_text_analyzer\Stanford Parser\stanford-parser-full-2020-11-17\stanford-parser-4.2.0-models.jar
